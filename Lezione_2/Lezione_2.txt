@@ -1,0 +1,63 @@
+STRUTTURE DI CONTROLLO
+
+IF
+
+letteralmente è il "se" del linguaggio C 
+
+In C 
+
+if(n == 10)
+{
+    printf("il tuo numero è dieci");
+}
+
+In pseudocodice
+
+Se il numero inserito è uguale a 10,
+stampa:"il tuo numero è dieci".
+
+Ricordarsi che senza "{}" viene contata sola la prima riga di codice dopo l'if.
+
+IF-ELSE
+
+Letteralmente il "se non accade questo, allora..." del linguaggio C 
+
+In C 
+
+if(n == 10)
+{
+    printf("il tuo numero è dieci");
+}else{
+    printf("il tuo numero non è dieci");
+}
+
+in pseudocodice
+
+Se il numero inserito è uguale a 10,
+stampa:"il tuo numero è dieci".
+Se invece non lo è,
+stampa:"il tuo numero non è dieci".
+
+ELSEIF
+
+Letteralmente è il "se non accede questo, controlla se accade questo" del linguaggio C
+
+In C
+
+if(n == 10)
+{
+    printf("il tuo numero è dieci");
+}elseif(n < 10){
+    printf("il tuo numero è minore di dieci");
+}else{
+    printf("il tuo numero è maggiore di dieci");
+}
+
+in pseudocodice
+
+Se il tuo numero è uguale a 10,
+stampa:"il tuo numero è dieci".
+Se invece non lo è, controlla se è più piccolo di 10,
+e allora stampa:"il tuo numero è minore di 10".
+Se invece non è neanche questo, 
+allora stampa:"il tuo numero è maggiore di 10".

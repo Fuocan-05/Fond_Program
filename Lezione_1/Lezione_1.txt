@@ -1,0 +1,65 @@
+Linguaggi di programmazione
+
+I programmi eseguiti dal calcolatore sono espressi in linguaggio macchina e, quindi, come sequenze di cifre numeriche.
+è più complicato scrivere i programmi in linguaggio macchina ed occupa più tempo
+Le prime soluzioni richiedevano l'utilizzo di metodi mnemonici come Assembly
+Il linguaggio Assembly è di un livello più alto rispetto al linguaggio macchina ed è considerabile il primo linguaggio macchina
+Un difetto di Assembly è la semplicità dei comandi e di conseguenza più è complicato il programma richiesto più Assembly diventa innopportuno
+Questa problematica porta alla necessità di nuovi linguaggi di programmazione
+Esempi
+C
+Java
+Python
+Cobol
+... 
+Questi linguaggi di programmazione necessitano l'ausilio di un Compilatore, ovvero un programma che traduce il codice in linguaggio macchina
+Un linguaggio di progammazione è composto
+Da primitive di alto livello indièpendenti dalla macchina
+Una propria grammatica da rispettare per il corretto funzionamento
+Compilatore VS Interprete
+Il compilatore analizza l'intero file prima di trasformarlo in istruzioni macchina
+L'interprete invece trasforma un istruzione in linguaggio macchina subito dopo averla analizzata
+Il linguaggio C è uno dei linguaggi più efficienti che ci siano
+Infatti molti sistemi operativi sono creati su basi di C/C++
+I programmi C sono costituiti da blocchi chiamati funzioni
+è possibile creare delle proprie funzioni, ma la maggior parte dei programmatori utilizza quelle predisposte già dal linguaggio C, queste sono chiamate librerie standard C
+
+Esempio di pseudo codice
+Funzione calcola_perimetro(base, altezza):
+      calcola il perimetro del rettangolo;
+      return perimetro;
+
+Funzione calcola_area(base, altezza):
+    calcola l'area;
+    return area;
+
+Funzione main()
+    int base;
+    int altezza;
+    int perimetro;
+    int area;
+    scanf(base);
+    scanf(altezza);
+    calcola_perimetro(base, altezza, perimetro);
+    calcola_area(base, altezza, area);
+    
+    return 0;
+
+Fine esempio
+
+Il file che contiene il codice si chiama di solito file sorgente:
+file.c -> linguaggio C
+file.cpp -> linguaggio C++
+file.java -> linguaggio Java
+
+Esempio codice sorgente
+
+    #include <stdio.h>
+    int main(void)
+    {
+        printf("Hello World!\n");
+        return 0;
+    }
+
+Fine esempio
+
