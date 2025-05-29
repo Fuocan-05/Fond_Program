@@ -1,0 +1,4 @@
+Carne;2;Carne,50.00;Sale,1.00;10.00;secondo
+Pasta;3;Pasta,100.00;Sale,1.50;Sugo,1.00;15.00;primo
+tiramis—;5;Marscarpone,500.00;Uova,4.00;Zucchero,100.00;Savoiardi,100.00;Caff‚,1.00;2.50;dolce
+Patatine_Fritte;2;patatine,10.00;sale,1.00;20.00;contorno

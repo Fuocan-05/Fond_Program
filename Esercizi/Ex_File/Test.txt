@@ -1,0 +1,11 @@
+Esercizio 2
+Scrivere un programma per contare le occorrenze delle 26 lettere dell'alfabeto in un file di testo.
+Il risultato deve essere salvato in un nuovo file chiamato frequenza_lettere.txt.
+Il contenuto di frequenza_lettere.txt dovrebbe essere di questo tipo:
+ Occorrenze di 'a': 124
+ Occorrenze di 'b': 52
+ Occorrenze di 'c': 83
+ ...
+Suggerimento: per trasformare un carattere da maiuscolo a minuscolo si può utilizzare la funzione di libreria
+tolower, dopo avere incluso l'header <ctype.h>. Esempio: char character = 'F';
+ character = tolower(character); // character è diventato 'f'
