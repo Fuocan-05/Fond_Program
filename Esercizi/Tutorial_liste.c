@@ -145,5 +145,10 @@ int main() {
                 break;
         }
     }
-
+    // Free the allocated memory
+    free(node1);
+    free(node2);
+    free(node3);
+    printf("\nExiting the program.\n");
+    return 0;
 }
