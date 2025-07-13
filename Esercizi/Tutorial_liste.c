@@ -18,7 +18,7 @@ void printlist(struct node* p) {
     printf("\n");
 }
 
-void addnode (struct node** head, int data) {
+void addnode (struct node** head, int data) { //doppio ** significa che head verrà modificata
     struct node* new_node = malloc(sizeof(struct node));
     printf("\n");
     printf("Enter the new value: ");
@@ -83,7 +83,7 @@ int main() {
     int data;
 
     struct node* head;
-    struct node* node1 = NULL;
+    struct node* node1 = NULL; //x = 0
     node1 = malloc(sizeof(struct node));
     struct node* node2 = NULL;
     node2 = malloc(sizeof(struct node));
