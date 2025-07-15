@@ -1,2 +1,8 @@
-2 Pane 0.50
-3 Pasta 2.50
+
+4 Latte 0.50
+
+2 Pasta 1.00
+
+5 Pane 0.35
+
+3 Zucchero 0.20
