@@ -1,107 +1,83 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define MAX 20 
 
-struct Rubrica {
-    char nome[MAX];
-    char numero[11];
-    struct Rubrica* next;
+#define M 50
+#define m 11
+
+struct rubrica
+{
+    char nome[M];
+    char cognome[M];
+    char numero[m];
+    struct rubrica* next;
 };
 
+void ordinalista (struct rubrica** head) {
+    struct rubrica* i;
+    struct rubrica* j;
+    char tnome[M], tcognome[M], tnumero[m];
+    if (*head == NULL) {
+        printf("Rubrica vuota\n");
+        return;
+    }
 
-void printlist(struct Rubrica* p) {
-    printf("\n");
-    printf("\n Ecco i tuoi contatti: \n");
+    for (i = *head; i != NULL; i = i->next) {
+        for (j = i->next; j != NULL; j = j->next) {
+            if (strcmp(i->nome, j->nome) > 0) {
+                strcpy(tnome, i->nome);
+                strcpy(tcognome, i->cognome);
+                strcpy(tnumero, i->numero);
+
+                strcpy(i->nome, j->nome);
+                strcpy(i->cognome, j->cognome);
+                strcpy(i->numero, j->numero);
+
+                strcpy(j->nome, tnome);
+                strcpy(j->cognome, tcognome);
+                strcpy(j->numero, tnumero);
+            }
+        }
+    }
+}
+
+void printfile(struct rubrica* p) {
+    FILE* fp = fopen("rubrica.txt", "w");
     while(p != NULL) {
-        printf("- %s\n", p->nome);
+        fprintf(fp, "%s %s %s\n", p->nome, p->cognome, p->numero);
         p = p->next;
     }
-    printf("\n");
+    fclose(fp);
 }
 
-void NuovoContatto(struct Rubrica** head, char nome[MAX], char numero[10]) {
-    struct Rubrica* nuovocontatto = malloc(sizeof(struct Rubrica));
-    printf("\n Inserisci il nome del contatto: ");
-    fgets(nuovocontatto->nome, MAX, stdin);
-    nuovocontatto->nome[strcspn(nuovocontatto->nome, "\n")] = 0;
-    printf("\n Inserisci il numero di telefono: ");
-    fgets(nuovocontatto->numero, 11, stdin);
-    nuovocontatto->numero[strcspn(nuovocontatto->numero, "\n")] = 0;
-    nuovocontatto->next = *head;
-    *head = nuovocontatto;
-    printlist(*head);
-}
-
-void CercaContatto(struct Rubrica* head, char nome[MAX]) {
-    struct Rubrica* temp = head;
-    printf("\nChi vuoi cercare?\n");
-    fgets(nome, MAX, stdin);
-    nome[strcspn(nome, "\n")] = 0;
-    while(temp != NULL) {
-        if (strcmp(temp->nome, nome) == 0) {
-            printf("\n Contatto trovato: %s, Numero: %s\n", temp->nome, temp->numero);
-            return;
-        }
-        temp = temp->next;
-    }
-    printf("\n Contatto non trovato.\n");
-}
-
-void LiberaTutto(struct Rubrica* p) {
+void freeall(struct rubrica* p) {
+    struct rubrica* temp;
     while (p != NULL) {
-        struct Rubrica* temp = p;
+        temp = p;
         p = p->next;
         free(temp);
     }
 }
 
 
-int main()
-{
-    char nome[MAX];
-    char numero[11];
-
-    struct Rubrica* head = NULL;
-
-
-    int turno = 1;
-    int scelta;
-
-    while (turno == 1) {
-        printf("\n Ciao cosa vuoi fare?");
-        printf("\n  1. Inserire nuovo contatto");
-        printf("\n  2. Cercare contatto");
-        printf("\n  3. Stampa rubrica");
-        printf("\n  4. Uscire");
-
-        printf("\n Inserire la tua scelta: ");
-        scanf("%d", &scelta);
-        getchar();
-        switch(scelta) {
-            case 1:
-                //nuovo contatto
-                NuovoContatto(&head, nome, numero);
-                break;
-            case 2:
-                //cerca contatto
-                CercaContatto(head, nome);
-                break;
-            case 3:
-                //stampa rubrica
-                printlist(head);
-                break;
-            case 4:
-                //esci
-                printf(" ciao!");
-                turno = 0;
-                break;
-            default:
-                printf(" errore");
-                break;
-        }  
+int main(){
+    FILE* fp;
+    struct rubrica* head = NULL;
+    char nome[M], cognome[M], numero[m];
+    fp = fopen("rubrica.txt", "r");
+    while(fscanf(fp, "%s %s %s", nome, cognome, numero) == 3) {
+        struct rubrica* nuovo = malloc(sizeof(struct rubrica));
+        strcpy(nuovo->nome, nome);
+        strcpy(nuovo->cognome, cognome);
+        strcpy(nuovo->numero, numero);
+        nuovo->next = head;
+        head = nuovo;
     }
-    // Libera la memoria allocata per la rubrica
-    LiberaTutto(head);
+    ordinalista(&head);
+    fclose(fp);
+    printfile(head);
+
+    freeall(head);
     return 0;
 }
+
