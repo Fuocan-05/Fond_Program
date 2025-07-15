@@ -50,6 +50,7 @@ int main() {
         nuovo->next = head;
         head = nuovo;
     }
+
     
     printlist(head);
     freeall(head);
